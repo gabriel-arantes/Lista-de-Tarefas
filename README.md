@@ -5,9 +5,7 @@ Tarefa de Estrutura de Dados (Desafio 1)
 
 • Aluno: Gabriel Soares Arantes (RA: 21710023)
 
-• Objetivos do Projeto:
-
-   • Montagem de controle para tarefas diárias, incluindo:
+• Objetivos do Projeto: Montagem de controle para tarefas diárias, incluindo:
   
     • Inserção de tarefas;
     • Edição de tarefas;
