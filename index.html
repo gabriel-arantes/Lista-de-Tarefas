@@ -7,35 +7,50 @@
 
 <style media="screen">
 	
+
+	table {
+  border-collapse: collapse;
+  width: 100%;
+	}
+
+	th, td {
+	  padding: 8px;
+	  text-align: left;
+	  border-bottom: 1px solid #ddd;
+	}
+
+	select {
+		padding: 8px;
+		text-align: center;
+		background-color: #e6e6e6;
+		border: 2px solid #4CAF50
+	}
+
+	tr:hover {background-color:#f5f5f5;
+	}
 	input {
 		padding: 10px;
 		height: 10px;
 	}
-
-.button1 {
-  background-color: white; 
-  color: black; 
-  border: 2px solid #4CAF50;
-}
-
-.button1:hover {
-  background-color: #4CAF50;
-  color: white;
-}
-
-.button3 {
-  background-color: white; 
-  color: black; 
-  border: 2px solid #f44336;
-}
-
-.button3:hover {
-  background-color: #f44336;
-  color: white;
-}
-
+	.button1 {
+	  background-color: white; 
+	  color: black; 
+	  border: 2px solid #4CAF50;
+	}
+	.button1:hover {
+	  background-color: #4CAF50;
+	  color: white;
+	}
+	.button2 {
+	  background-color: white; 
+	  color: black; 
+	  border: 2px solid #f44336;
+	}
+	.button2:hover {
+	  background-color: #f44336;
+	  color: white;
+	}
 fieldset { border:1px solid green }
-
 legend {
   padding: 0.2em 0.5em;
   border:1px solid green;
@@ -43,7 +58,6 @@ legend {
   font-size:90%;
   text-align:left;
   }
-
 </style>
 
 <body>
@@ -55,15 +69,19 @@ legend {
 <fieldset>	
 	<legend><b>Inserção/Edição de Tarefas</b></legend>
 	<input id="inpNome" type="text" placeholder="Nome da tarefa...">
-	<input id="inpStatus" type="text" placeholder="Status da tarefa...">
+	<select id="inpStatus">
+	  <option value="Concluída">Concluída</option>
+	  <option value="Incompleta">Incompleta</option>
+	  <option value="Atrasada">Atrasada</option>
+	</select>
 	<button class="button1" id="btnInsert">Insert Data</button>
 </fieldset><br>
 
 <fieldset>
 	<legend><b>Remover Tarefas</b></legend>
 	<input id="inpRem" type="text" placeholder="Nome da tarefa a remover...">
-	<button class="button3" id="btnRemove">Remove</button>
-	<button class="button3" id="btnRemoveAll">Remove All</button>	
+	<button class="button2" id="btnRemove">Remove</button>
+	<button class="button2" id="btnRemoveAll">Remove All</button>	
 </fieldset><br>
 
 <fieldset>
@@ -75,53 +93,44 @@ legend {
 
 
 <script type="text/javascript">
-
 	document.body.style.backgroundColor = "#F0F8FF";
 	const inpNome = document.getElementById("inpNome");
-	const inpStatus = document.getElementById("inpStatus");
+	var inpStatus = document.getElementById("inpStatus");
 	const inpRem = document.getElementById("inpRem")
 	const btnInsert = document.getElementById("btnInsert");
 	const btnRemove = document.getElementById("btnRemove");	
 	const btnRemoveAll = document.getElementById("btnRemoveAll");	
 	const lsOutput = document.getElementById("lsOutput");
-
 	btnInsert.onclick = function () {
 		const nome = inpNome.value;
-		const status = inpStatus.value;
-
-
+		var status = inpStatus.value;
 		console.log(nome);
 		console.log(status);
-
 		if (nome&&status) {
-
 			localStorage.setItem(nome, status);
 			location.reload();
-
 		}
 	};
-
 	btnRemove.onclick = function(){
-
 		const rem = inpRem.value;
 		localStorage.removeItem(rem);
 		location.reload();
 	}
-
 	btnRemoveAll.onclick = function(){
-
 		localStorage.clear();
 		location.reload();
 	}
-
 	for (let i = 0; i <localStorage.length; i++) {
 		const nome = localStorage.key(i);
-		const status = localStorage.getItem(nome);
+		var status = localStorage.getItem(nome);
 	
-
-
-	lsOutput.innerHTML += `${nome} = ${status}<br>`;
-
+	lsOutput.innerHTML += `
+<table>
+  <tr>
+    <td><p align="left">${nome}</p></td>
+    <td><p align="right">${status}</p></td>
+  </tr>
+`;
 }
 </script>
 </html> 
