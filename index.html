@@ -3,13 +3,64 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Tarefas</title>
-	<div class="header">
-  <img src="https://www.brecorder.com/wp-content/uploads/2017/10/huawei-logo.jpg" alt="logo" />
-</div>
+
+    <div class="navigation-bar">
+        <div id="navigation-container">
+       		<img class = "logo" src="https://consumer-res.huawei.com/etc/designs/huawei-cbg-site/images/common/bg2240_993.png"> 
+            	<ul>
+	                <li><a href="index.html">Home</a></li>
+	                <li><a href="tarefas.html">Editar Tarefas</a></li>
+	                <li><a href="#">About</a></li>
+	            </ul>
+	    </div>
+	</div>	<br>
+
+
 </head>
 
 <style media="screen">
-	
+
+	/* mouse over link */
+	a:hover {
+	  color: red;
+	  text-decoration: underline;
+	}
+
+	/* selected link */
+	a:active {
+	  color: red;
+	  text-decoration: underline;
+	}
+
+	.navigation-bar ul {
+	  padding: 0px;
+	  margin: 0px;
+	  text-align: center;
+	  display:inline-block;
+	  vertical-align:top;
+	} 
+
+	.logo {
+    display: inline-block;
+    vertical-align: top;
+    width: 100px;
+    height: 50px;
+    margin-right: 20px;
+    margin-top: 15px;
+}
+
+	li {
+	  float: left;
+	}
+
+	li a {
+	  display: block;
+	  color: white;
+	  text-align: center;
+	  padding: 14px 16px;
+	  text-decoration: none;
+	}
+
 	.header img {
 	  float: left;
 	  width: 180px;
@@ -30,10 +81,6 @@
 	table {
   border-collapse: collapse;
   width: 100%;
-	}
-
-	ul {
-  list-style-image: url('http://logok.org/wp-content/uploads/2014/06/Huawei-logo-sun-880x660.png');
 	}
 
 	th, td {
@@ -98,7 +145,6 @@
 
 <body>
 
-<br><br><br><br><br><br><br><br>
 
 <fieldset>	
 	<legend><b>Inserção/Edição de Tarefas</b></legend>
@@ -161,8 +207,8 @@
 	lsOutput.innerHTML += `
 <table>
   <tr><ul>
-    <td><p align="left"><li>${nome}</li></p></td></ul>
-    <td><p align="right">${status}</p></td>
+    <td><p align="left"><a href="tarefa.html">${nome}</a></p></td></ul>
+    <th><p align="right">${status}</p></th>
   </tr>
 `;
 }
