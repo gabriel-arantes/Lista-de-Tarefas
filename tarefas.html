@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Tarefas</title>
+
+    <div class="navigation-bar">
+        <div id="navigation-container">
+       		<img class = "logo" src="https://consumer-res.huawei.com/etc/designs/huawei-cbg-site/images/common/bg2240_993.png"> 
+            	<ul>
+	                <li><a href="index.html">Home</a></li>
+	                <li><a href="tarefas.html">Editar Tarefas</a></li>
+	                <li><a href="#">About</a></li>
+	            </ul>
+	    </div>
+	</div>	<br>
+
+
+</head>
+
+<style media="screen">
+
+	/* mouse over link */
+	a:hover {
+	  color: red;
+	  text-decoration: underline;
+	}
+
+	/* selected link */
+	a:active {
+	  color: red;
+	  text-decoration: underline;
+	}
+
+	.navigation-bar ul {
+	  padding: 0px;
+	  margin: 0px;
+	  text-align: center;
+	  display:inline-block;
+	  vertical-align:top;
+	} 
+
+	.logo {
+    display: inline-block;
+    vertical-align: top;
+    width: 100px;
+    height: 50px;
+    margin-right: 20px;
+    margin-top: 15px;
+}
+
+	li {
+	  float: left;
+	}
+
+	li a {
+	  display: block;
+	  color: white;
+	  text-align: center;
+	  padding: 14px 16px;
+	  text-decoration: none;
+	}
+
+	.header img {
+	  float: left;
+	  width: 180px;
+	  height: 140px;
+	  background: #555;
+	}
+
+	.header h1 {
+	  position: relative;
+	  top: 20px;
+	  left: 10px;
+	}
+
+	body { 
+	  background: url("http://wallpapersdsc.net/wp-content/uploads/2016/09/Huawei-Computer-Wallpaper.png") no-repeat fixed center; 
+	}
+
+	table {
+  border-collapse: collapse;
+  width: 100%;
+	}
+
+	th, td {
+	  padding: 8px;
+	  text-align: left;
+	  border-bottom: 1px solid #ddd;
+	}
+
+	select {
+		padding: 8px;
+		text-align: center;
+	    border-radius: 7px;
+		background-color: #f5f5f5;
+		border: 1px solid #cc0000;
+	}
+
+	select:hover {
+	  background-color: #e6e6e6;
+	  color: black;	
+}
+	tr:hover {background-color:#e6e6e6;
+	}
+
+	.button1 {
+	  background-color: white; 
+	  border-radius: 10px;
+	  color: black; 
+	  border: 2px solid #4CAF50;
+	}
+	.button1:hover {
+	  background-color: #4CAF50;
+	  color: white;
+	}
+
+	fieldset { border:1px solid #cc0000; 
+	background-color: #f5f5f5;
+	border-radius: 7px;
+	 }
+	legend {
+	  padding: 0.2em 0.5em;
+	  background-color: #f5f5f5;
+	  border-radius: 7px;
+	  border:1px solid #cc0000;
+	  color:black;
+	  font-size:90%;
+	  text-align:left;
+	  }
+
+</style>
+
+<body>
+
+<fieldset>
+	<legend><b>Lista de Tarefas</b></legend>
+	<div id="lsOutput"></div><br>
+	<p align="right"><button class="button1" id="btnInsert">Atualizar Dados</button></p>
+</fieldset><br>
+
+</body>
+
+
+<script type="text/javascript">
+	document.body.style.backgroundColor = "black";
+	const lsOutput = document.getElementById("lsOutput");
+	var inpStatus = document.getElementById("inpStatus");
+	const btnInsert = document.getElementById("btnInsert");
+	btnInsert.onclick = function () {
+		const nome = nome;
+		var status = inpStatus.value;
+		console.log(status);
+			localStorage.setItem(nome, status);
+			location.reload();
+		};
+
+
+	for (let i = 0; i <localStorage.length; i++) {
+		const nome = localStorage.key(i);
+		var status = localStorage.getItem(nome);
+	
+	if (status = "Concluída"){
+
+	lsOutput.innerHTML += `
+<table>
+  <tr><ul>
+    <td><a href="tarefa.html">${nome}</a></td></ul>
+   	<th><p align="right"><select id="inpStatus">
+	  <option selected="selected" value="Concluída">Concluída</option>
+	  <option value="Incompleta">Incompleta</option>
+	  <option value="Atrasada">Atrasada</option></p>
+	</select></th>
+  </tr>
+`}
+};
+
+</script>
+</html> 
