@@ -3,10 +3,29 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Tarefas</title>
+	<div class="header">
+  <img src="https://www.brecorder.com/wp-content/uploads/2017/10/huawei-logo.jpg" alt="logo" />
+</div>
 </head>
 
 <style media="screen">
 	
+	.header img {
+	  float: left;
+	  width: 180px;
+	  height: 140px;
+	  background: #555;
+	}
+
+	.header h1 {
+	  position: relative;
+	  top: 20px;
+	  left: 10px;
+	}
+
+body { 
+  background: url("http://wallpapersdsc.net/wp-content/uploads/2016/09/Huawei-Computer-Wallpaper.png") no-repeat fixed center; 
+}
 
 	table {
   border-collapse: collapse;
@@ -22,11 +41,11 @@
 	select {
 		padding: 8px;
 		text-align: center;
-		background-color: #e6e6e6;
-		border: 2px solid #4CAF50
+		background-color: #f5f5f5;
+		border: 1px solid #cc0000;
 	}
 
-	tr:hover {background-color:#f5f5f5;
+	tr:hover {background-color:#e6e6e6;
 	}
 	input {
 		padding: 10px;
@@ -44,27 +63,31 @@
 	.button2 {
 	  background-color: white; 
 	  color: black; 
-	  border: 2px solid #f44336;
+	  border: 2px solid #cc0000;
 	}
 	.button2:hover {
-	  background-color: #f44336;
+	  background-color: #cc0000;
 	  color: white;
 	}
-fieldset { border:1px solid green }
-legend {
-  padding: 0.2em 0.5em;
-  border:1px solid green;
-  color:black;
-  font-size:90%;
-  text-align:left;
-  }
+	fieldset { border:1px solid #cc0000; 
+	background-color: #f5f5f5;
+	border-radius: 7px;
+	 }
+	legend {
+	  padding: 0.2em 0.5em;
+	  background-color: #f5f5f5;
+	  border-radius: 7px;
+	  border:1px solid #cc0000;
+	  color:black;
+	  font-size:90%;
+	  text-align:left;
+	  }
+
 </style>
 
 <body>
 
-  <div class="small-container">
-    <h1><b>Lista de Tarefas</b></h1>
-  </div>
+<br><br><br><br><br><br><br><br>
 
 <fieldset>	
 	<legend><b>Inserção/Edição de Tarefas</b></legend>
@@ -93,7 +116,7 @@ legend {
 
 
 <script type="text/javascript">
-	document.body.style.backgroundColor = "#F0F8FF";
+	document.body.style.backgroundColor = "black";
 	const inpNome = document.getElementById("inpNome");
 	var inpStatus = document.getElementById("inpStatus");
 	const inpRem = document.getElementById("inpRem")
@@ -127,7 +150,7 @@ legend {
 	lsOutput.innerHTML += `
 <table>
   <tr>
-    <td><p align="left">${nome}</p></td>
+    <hr><td><p align="left">${nome}</p></td>
     <td><p align="right">${status}</p></td>
   </tr>
 `;
