@@ -23,13 +23,17 @@
 	  left: 10px;
 	}
 
-body { 
-  background: url("http://wallpapersdsc.net/wp-content/uploads/2016/09/Huawei-Computer-Wallpaper.png") no-repeat fixed center; 
-}
+	body { 
+	  background: url("http://wallpapersdsc.net/wp-content/uploads/2016/09/Huawei-Computer-Wallpaper.png") no-repeat fixed center; 
+	}
 
 	table {
   border-collapse: collapse;
   width: 100%;
+	}
+
+	ul {
+  list-style-image: url('http://logok.org/wp-content/uploads/2014/06/Huawei-logo-sun-880x660.png');
 	}
 
 	th, td {
@@ -100,7 +104,7 @@ body {
 	  <option value="Incompleta">Incompleta</option>
 	  <option value="Atrasada">Atrasada</option>
 	</select>
-	<button class="button1" id="btnInsert">Insert Data</button>
+	<button class="button1" id="btnInsert">Insert / Edit Data</button>
 </fieldset><br>
 
 <fieldset>
@@ -152,8 +156,8 @@ body {
 	
 	lsOutput.innerHTML += `
 <table>
-  <tr>
-    <hr><td><p align="left">${nome}</p></td>
+  <tr><ul>
+    <hr><td><p align="left"><li>${nome}</li></p></td></ul>
     <td><p align="right">${status}</p></td>
   </tr>
 `;
