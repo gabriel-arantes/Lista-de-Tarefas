@@ -21,6 +21,10 @@
 
 <style media="screen">
 
+	option.white {
+		background-color:#f5f5f5;
+	}
+
 	/* mouse over link */
 	a:hover {
 		color: red;
@@ -122,6 +126,13 @@
 		background-color: #4CAF50;
 		color: white;
 	}
+
+	.button1:active {
+	background-color: #3e8e41;
+		box-shadow: 0 2px #666;
+		transform: translateY(4px);
+	}
+
 	.button2 {
 		background-color: white; 
 		border-radius: 7px;
@@ -133,12 +144,6 @@
 	.button2:hover {
 		background-color: #cc0000;
 		color: white;
-	}
-
-	.button1:active {
-	background-color: #3e8e41;
-		box-shadow: 0 2px #666;
-		transform: translateY(4px);
 	}
 
 	.button2:active {
@@ -171,9 +176,9 @@
 	<input id="inpNome" type="text" placeholder="Nome da tarefa...">
 	<select id="inpStatus">
 	  <option disabled selected value>Selecione o status</option>
-	  <option value="Concluída">Concluída</option>
-	  <option value="Incompleta">Incompleta</option>
-	  <option value="Atrasada">Atrasada</option>
+	  <option class = "white" value="Concluída">Concluída</option>
+	  <option class = "white" value="Incompleta">Incompleta</option>
+	  <option class = "white" value="Atrasada">Atrasada</option>
 	</select>
 	<button class="button1" id="btnInsert">Inserir / Editar Data</button>
 </fieldset>
@@ -190,8 +195,7 @@
 <fieldset>
 	<legend><b>Lista de Tarefas</b></legend>
 	<div id="lsOutput"></div>
-</fieldset>
-<br>
+</fieldset><br>
 
 </body>
 
@@ -217,13 +221,18 @@
 	};
 	btnRemove.onclick = function(){
 		const rem = inpRem.value;
-		localStorage.removeItem(rem);
-		location.reload();
-	}
+		if(rem != ""){
+			localStorage.removeItem(rem);
+			location.reload();
+		}
+	};
 	btnRemoveAll.onclick = function(){
+	  var r = confirm("Tem certeza que deseja remover todas as tarefas?");
+	  if (r == true) {
 		localStorage.clear();
 		location.reload();
-	}
+	  }
+	};		
 	for (let i = 0; i <localStorage.length; i++) {
 		const nome = localStorage.key(i);
 		var status = localStorage.getItem(nome);
