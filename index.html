@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Huawei</title>
-    <link rel="icon" href="https://consumer-res.huawei.com/etc/designs/huawei-cbg-site/images/common/bg2240_993.png">
+	<meta charset="UTF-8">
+	<title>Huawei</title>
+
+	<link rel="icon" href="https://consumer-res.huawei.com/etc/designs/huawei-cbg-site/images/common/bg2240_993.png">
     <div class="navigation-bar">
         <div id="navigation-container">
        		<img class = "logo" src="https://consumer-res.huawei.com/etc/designs/huawei-cbg-site/images/common/bg2240_993.png"> 
             	<ul>
 	                <li><a href="index.html">Home</a></li>
 	                <li><a href="tarefas.html">Editar Tarefas</a></li>
-	                <li><a href="#">About</a></li>
+	                <li><a href="">About</a></li>
 	            </ul>
 	    </div>
 	</div>
@@ -48,8 +49,8 @@
 	.logo {
 	    display: inline-block;
 	    vertical-align: top;
-	    width: 100px;
-	    height: 50px;
+	    width: 120px;
+	    height: 60px;
 	    margin-right: 20px;
 	    margin-top: 15px;
 }
@@ -130,7 +131,7 @@
 	.button1:active {
 	background-color: #3e8e41;
 		box-shadow: 0 2px #666;
-		transform: translateY(4px);
+		transform: translateY(2px);
 	}
 
 	.button2 {
@@ -149,7 +150,7 @@
 	.button2:active {
 	background-color: #cc0000;
 		box-shadow: 0 2px #666;
-		transform: translateY(4px);
+		transform: translateY(2px);
 	}
 
 	fieldset { border:1px solid #cc0000; 
@@ -221,17 +222,25 @@
 	};
 	btnRemove.onclick = function(){
 		const rem = inpRem.value;
-		if(rem != ""){
-			localStorage.removeItem(rem);
-			location.reload();
+		if (localStorage.getItem(rem) != null) {
+			if(rem != ""){
+					localStorage.removeItem(rem);
+					location.reload();
+			}	
 		}
-	};
+		else{
+			window.alert("A tarefa " + rem + " não está listada.");
+		}
+	}
+	;
 	btnRemoveAll.onclick = function(){
-	  var r = confirm("Tem certeza que deseja remover todas as tarefas?");
-	  if (r == true) {
-		localStorage.clear();
-		location.reload();
-	  }
+		if(localStorage.length != 0){
+		  var r = confirm("Tem certeza que deseja remover todas as tarefas?");
+		  if (r == true) {
+			localStorage.clear();
+			location.reload();
+		  }
+		}  
 	};		
 	for (let i = 0; i <localStorage.length; i++) {
 		const nome = localStorage.key(i);
